@@ -54,12 +54,14 @@ export default function LoginPage({
         title="로그인"
         func={async () => {
           await dispatch(
-            setLogin({
-              email: emailRef.current.value,
-              password: passwordRef.current.value,
-            }),
+            setLogin(
+              {
+                email: emailRef.current.value,
+                password: passwordRef.current.value,
+              },
+              history,
+            ),
           );
-          history.push('/my-info');
         }}
         isNormal
       />

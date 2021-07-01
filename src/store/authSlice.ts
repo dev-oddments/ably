@@ -36,7 +36,7 @@ const authReducer = createSlice({
 export const { setIsLogin, setUserInfo } = authReducer.actions;
 export default authReducer.reducer;
 
-export const setLogin = (param) => async (dispatch) => {
+export const setLogin = (param, history) => async (dispatch) => {
   try {
     const {
       data: { accessToken },
@@ -46,6 +46,8 @@ export const setLogin = (param) => async (dispatch) => {
 
     await saveItem('accessToken', accessToken);
     dispatch(setIsLogin({ isLogin: true }));
+
+    history.push('/my-info');
   } catch ({
     response: {
       data: {
