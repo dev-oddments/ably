@@ -5,7 +5,8 @@ interface ImageProps {
   src: string;
   alt: string;
   height: string;
-  width: string;
+  width?: string;
+  className?: string;
 }
 
 const Wrapper = styled.img`
@@ -17,7 +18,16 @@ export default function Image({
   src,
   alt,
   height,
-  width,
+  width = 'auto',
+  className = '',
 }: ImageProps): ReactElement {
-  return <Wrapper src={src} alt={alt} width={width} height={height} />;
+  return (
+    <Wrapper
+      className={className}
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+    />
+  );
 }
