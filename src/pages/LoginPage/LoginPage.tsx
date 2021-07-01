@@ -1,6 +1,7 @@
 import React, { ReactElement, useRef } from 'react';
-import { useDispatch } from 'react-redux';
 import { RouteComponentProps } from 'react-router-dom';
+
+import { useDispatch } from 'react-redux';
 import { setLogin } from '@store';
 
 export default function LoginPage({
@@ -16,8 +17,8 @@ export default function LoginPage({
       <input type="password" ref={passwordRef} />
       <button
         type="button"
-        onClick={() => {
-          dispatch(
+        onClick={async () => {
+          await dispatch(
             setLogin({
               email: emailRef.current.value,
               password: passwordRef.current.value,
