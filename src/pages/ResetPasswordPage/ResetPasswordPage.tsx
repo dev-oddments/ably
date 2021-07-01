@@ -1,8 +1,9 @@
 import React, { ReactElement, useRef } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
+import styled from 'styled-components';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { get } from '@utils/snippet';
+import { get, convertSecondsToMinute } from '@utils/snippet';
 
 import { checkEmailExist, checkAuthCodeRight, changePassword } from '@store';
 
@@ -11,6 +12,26 @@ import {
   AUTH_CODE_CHECK,
   PASSWORD_CHANGE,
 } from '@utils/constants';
+
+import { Button } from '@molecules';
+
+const Wrapper = styled.div`
+  ${({ theme }) => theme.flexCol()}
+
+  input {
+    ${({ theme: { input } }) => input}
+  }
+
+  .code-check {
+    position: relative;
+    .timer {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      margin-bottom: 20px;
+    }
+  }
+`;
 
 export default function ResetPasswordPage({
   history,
@@ -45,26 +66,28 @@ export default function ResetPasswordPage({
   }[route];
 
   return (
-    <>
+    <Wrapper>
       <input
         type="input"
         name="email"
         ref={emailRef}
+        placeholder="이메일 입력"
         disabled={route !== EMAIL_EXIST}
         onKeyDown={({ key }) => key === 'Enter' && handleClickButton()}
       />
       {
         {
           [AUTH_CODE_CHECK]: (
-            <>
+            <div className="code-check">
               <input
                 type="input"
                 name="authCode"
                 ref={authCodeRef}
+                placeholder="인증번호 입력"
                 onKeyDown={({ key }) => key === 'Enter' && handleClickButton()}
               />
-              <div>{remainTime}</div>
-            </>
+              <div className="timer">{convertSecondsToMinute(remainTime)}</div>
+            </div>
           ),
           [PASSWORD_CHANGE]: (
             <>
@@ -73,12 +96,14 @@ export default function ResetPasswordPage({
                 type="password"
                 name="newPassword"
                 ref={newPasswordRef}
+                placeholder="변경할 비밀번호 입력"
                 onKeyDown={({ key }) => key === 'Enter' && handleClickButton()}
               />
               <input
                 type="password"
                 name="newPasswordConfirm"
                 ref={newPasswordConfirmRef}
+                placeholder="변경할 비밀번호 한번 더 입력"
                 onKeyDown={({ key }) => key === 'Enter' && handleClickButton()}
               />
             </>
@@ -86,9 +111,11 @@ export default function ResetPasswordPage({
         }[route]
       }
 
-      <button type="button" onClick={handleClickButton}>
-        {route === PASSWORD_CHANGE ? '비밀번호 변경' : '다음'}
-      </button>
-    </>
+      <Button
+        title={route === PASSWORD_CHANGE ? '비밀번호 변경' : '다음'}
+        func={handleClickButton}
+        isNormal
+      />
+    </Wrapper>
   );
 }

@@ -4,12 +4,13 @@ import styled from 'styled-components';
 interface EachButtonProps {
   title: string;
   func: any;
+  isNormal?: boolean;
 }
 
-const WrapEachButton = styled.button`
+const WrapEachButton = styled.button<{ isNormal: boolean }>`
   ${({ theme: { flexRow } }) => flexRow()}
 
-  width: 88%;
+  width: ${({ isNormal }) => (isNormal ? '200px' : '88%')};
   max-width: 600px;
   height: 48px;
 
@@ -50,11 +51,17 @@ const WrapEachButton = styled.button`
   :active {
     transform: translate(1px, 1px);
   }
+
+  cursor: pointer;
 `;
 
-export default function Button({ title, func }: EachButtonProps): ReactElement {
+export default function Button({
+  title,
+  func,
+  isNormal = false,
+}: EachButtonProps): ReactElement {
   return (
-    <WrapEachButton type="button" onClick={func}>
+    <WrapEachButton type="button" onClick={func} isNormal={isNormal}>
       {title}
     </WrapEachButton>
   );
