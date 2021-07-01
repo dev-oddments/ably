@@ -18,7 +18,7 @@ describe('App', () => {
     it('정상적으로 렌더링된다', () => {
       const { container } = renderApp({ path: '/' });
 
-      expect(container).toHaveTextContent('test');
+      expect(container).toHaveTextContent('로그인');
     });
   });
 });
