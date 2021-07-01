@@ -18,8 +18,8 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint'],
   rules: {
-    'no-return-await': 'off',
-    'import/no-unresolved': 'off',
+    'no-return-await': 0,
+    'import/no-unresolved': 0,
     'no-use-before-define': 0,
     '@typescript-eslint/no-use-before-define': 0,
     'import/extensions': 0,
@@ -27,6 +27,8 @@ module.exports = {
       'error',
       { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
     ],
+    'import/prefer-default-export': 0,
+    'react/require-default-props': 0,
   },
   settings: {
     'import/resolver': {
