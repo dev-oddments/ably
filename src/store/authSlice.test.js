@@ -65,7 +65,7 @@ describe('authReducer에서', () => {
       expect(actions[0].payload.isLogin).toEqual(true);
     });
 
-    // TODO: localStorage가 관여하므로 추후에 이를 해결하여 정상화
+    // TODO: sessionStorage 관여하므로 추후에 이를 해결하여 정상화
     //     it('setInfo를 사용해 유저 정보를 가져올 수 있다.', async () => {
     //       const store = mockStore({});
 

@@ -78,7 +78,7 @@ describe('App', () => {
           },
         });
 
-        localStorage.setItem('accessToken', accessToken);
+        sessionStorage.setItem('accessToken', accessToken);
 
         const { container } = renderApp({ path: '/my-info' });
 

@@ -99,7 +99,7 @@ yarn lint
   - Modal에 대한 메시지를 알리는 부분은 Alert Modal로 구현하여 처리하였습니다.
   - 비밀번호 변경에 대한 부분은 password 슬라이스에서 처리하였습니다.
   - 로그인 이후 정보를 담는 부분은 auth에서 처리하도록 하였습니다.
-- 비동기 액션인 setLogin 과정에서 accessToken은 localStorage에 저장되도록 처리하였습니다.
+- 비동기 액션인 setLogin 과정에서 accessToken은 sessionStorage 저장되도록 처리하였으며, setLogout시 sessionStorage에 remove 되도록 처리했습니다.
 - 인증 만료 시간 Counter는 passwordSlice의 startTime action을 사용하였으며, setInterval을 사용하도록 구현하였습니다.
 - flex, font, color 등 자주 사용하는 css 코드들은 [style/theme.ts](src/style/theme.ts)에 정의하였습니다.
 - [AuthRouter](src/routes/AuthRoute/AuthRoute.tsx)를 도입하여 AccessToken과 isLogin 전역 상태가 존재하지 않는 경우 로그인 화면으로 Redirect 되도록 하였습니다.

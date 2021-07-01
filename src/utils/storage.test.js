@@ -1,39 +1,39 @@
 import { saveItem, loadItem, removeItem } from './storage';
 
 describe('storage', () => {
-  jest.spyOn(Object.getPrototypeOf(window.localStorage), 'setItem');
+  jest.spyOn(Object.getPrototypeOf(window.sessionStorage), 'setItem');
 
   beforeEach(() => {
-    Object.getPrototypeOf(window.localStorage).setItem = jest.fn();
-    Object.getPrototypeOf(window.localStorage).getItem = jest.fn();
-    Object.getPrototypeOf(window.localStorage).removeItem = jest.fn();
+    Object.getPrototypeOf(window.sessionStorage).setItem = jest.fn();
+    Object.getPrototypeOf(window.sessionStorage).getItem = jest.fn();
+    Object.getPrototypeOf(window.sessionStorage).removeItem = jest.fn();
   });
 
   describe('saveItem', () => {
-    it('calls localStorage setItem', () => {
+    it('calls sessionStorage setItem', () => {
       saveItem('key', 'value');
 
-      expect(localStorage.setItem).toBeCalledWith('key', 'value');
+      expect(sessionStorage.setItem).toBeCalledWith('key', 'value');
     });
   });
 
   describe('loadItem', () => {
-    it('calls localStorage getItem', () => {
+    it('calls sessionStorage getItem', () => {
       loadItem('key');
 
-      expect(localStorage.getItem).toBeCalledWith('key');
+      expect(sessionStorage.getItem).toBeCalledWith('key');
     });
   });
 
   describe('removeItem', () => {
-    it('calls localStorage removeItem', () => {
+    it('calls sessionStorage removeItem', () => {
       loadItem('key');
 
-      expect(localStorage.getItem).toBeCalledWith('key');
+      expect(sessionStorage.getItem).toBeCalledWith('key');
 
       removeItem('key');
 
-      expect(localStorage.getItem).toBeCalledWith('key');
+      expect(sessionStorage.getItem).toBeCalledWith('key');
     });
   });
 });

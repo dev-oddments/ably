@@ -1,11 +1,11 @@
 export function saveItem(key: string, value: any) {
-  localStorage.setItem(key, value);
+  sessionStorage.setItem(key, value);
 }
 
 export function loadItem(key: string): any {
-  return localStorage.getItem(key);
+  return sessionStorage.getItem(key);
 }
 
 export function removeItem(key: string) {
-  localStorage.removeItem(key);
+  sessionStorage.removeItem(key);
 }
