@@ -3,11 +3,11 @@ module.exports = {
     browser: true,
     es2021: true,
     jest: true, // describe, context, it
-    cypress: true,
   },
   extends: ['plugin:react/recommended', 'airbnb'],
   globals: {
-    context: 'readonly',
+    cy: true,
+    context: true,
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {
