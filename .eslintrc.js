@@ -4,7 +4,7 @@ module.exports = {
     es2021: true,
     jest: true, // describe, context, it
   },
-  extends: ['plugin:react/recommended', 'airbnb'],
+  extends: ['plugin:react/recommended', 'airbnb', 'prettier'],
   globals: {
     cy: true,
     context: true,
@@ -17,7 +17,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint'],
+  plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
     'no-return-await': 0,
     'import/no-unresolved': 0,
@@ -30,6 +30,7 @@ module.exports = {
     ],
     'import/prefer-default-export': 0,
     'react/require-default-props': 0,
+    'prettier/prettier': ['error'],
   },
   settings: {
     'import/resolver': {
