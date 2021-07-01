@@ -23,10 +23,9 @@ export const postLoginApi = async ({ param }) => await api({
   param,
 });
 
-export const postLogoutApi = async ({ param }) => await api({
+export const postLogoutApi = async () => await api({
   url: '/api/logout',
   type: 'post',
-  param,
 });
 
 export const getUserInfoApi = async () => await api({
