@@ -15,7 +15,7 @@ import {
 
 import { Button } from '@molecules';
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ isWarning: boolean }>`
   ${({ theme }) => theme.flexCol()}
 
   input {
@@ -26,9 +26,17 @@ const Wrapper = styled.div`
     position: relative;
     .timer {
       position: absolute;
-      top: 5px;
+      top: 3px;
       right: 5px;
+
       margin-bottom: 20px;
+
+      ${({ isWarning }) => isWarning && 'color: red'};
+      ${({
+        theme: {
+          font: { n12b },
+        },
+      }) => n12b}
     }
   }
 `;
@@ -66,7 +74,7 @@ export default function ResetPasswordPage({
   }[route];
 
   return (
-    <Wrapper>
+    <Wrapper isWarning={remainTime < 60}>
       <input
         type="input"
         name="email"
