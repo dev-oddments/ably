@@ -14,7 +14,7 @@ function renderApp({ path }) {
   return render(
     <MemoryRouter initialEntries={[path]}>
       <App />
-    </MemoryRouter>
+    </MemoryRouter>,
   );
 }
 
@@ -46,7 +46,7 @@ describe('App', () => {
           remainTime: 0,
           timerId: '',
         },
-      })
+      }),
     );
   });
 

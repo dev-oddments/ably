@@ -20,8 +20,14 @@ export default function MyInfoPage({ history }: RouteComponentProps) {
     <>
       {isLogin && (
         <>
-          <div className="email">email: {email}</div>
-          <div className="name">name: {name}</div>
+          <div className="email">
+            email:
+            {email}
+          </div>
+          <div className="name">
+            name:
+            {name}
+          </div>
           <img className="image" src={profileImage} alt="profile" />
         </>
       )}

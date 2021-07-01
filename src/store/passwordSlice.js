@@ -1,17 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { displayModal } from '@store';
-import { MODALS } from '@utils/constants';
+import {
+  MODALS,
+  EMAIL_EXIST,
+  AUTH_CODE_CHECK,
+  PASSWORD_CHANGE,
+} from '@utils/constants';
 import {
   getAuthCodeApi,
   postAuthCodeCompareApi,
   patchAuthCodeChangeApi,
 } from '@repository/baseRepository';
-
-import {
-  EMAIL_EXIST,
-  AUTH_CODE_CHECK,
-  PASSWORD_CHANGE,
-} from '@utils/constants';
 
 const passwordReducer = createSlice({
   name: 'password',
@@ -90,8 +89,8 @@ export const startTime =
         dispatch(
           displayModal({
             modalName: MODALS.ALERT_MODAL,
-            content: `시간이 만료되어 이메일을 다시 입력해주셔야 합니다!`,
-          })
+            content: '시간이 만료되어 이메일을 다시 입력해주셔야 합니다!',
+          }),
         );
         dispatch(setRoute({ route: EMAIL_EXIST }));
         return dispatch(resetTime());
@@ -124,7 +123,7 @@ export const checkEmailExist =
         displayModal({
           modalName: MODALS.ALERT_MODAL,
           content: message,
-        })
+        }),
       );
     }
   };
@@ -157,7 +156,7 @@ export const checkAuthCodeRight =
         displayModal({
           modalName: MODALS.ALERT_MODAL,
           content: message,
-        })
+        }),
       );
     }
   };
@@ -188,7 +187,7 @@ export const changePassword =
         displayModal({
           modalName: MODALS.ALERT_MODAL,
           content: '비밀번호 변경이 완료되었습니다!',
-        })
+        }),
       );
     } catch ({
       response: {
@@ -201,7 +200,7 @@ export const changePassword =
         displayModal({
           modalName: MODALS.ALERT_MODAL,
           content: message,
-        })
+        }),
       );
     }
   };

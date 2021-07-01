@@ -28,15 +28,17 @@ export default function AuthRoute({
   return (
     <Route
       {...rest}
-      render={(props) => (isLogin || accessToken ? (
-        render ? (
-          render(props)
+      render={(props) =>
+        isLogin || accessToken ? (
+          render ? (
+            render(props)
+          ) : (
+            <Component {...props} />
+          )
         ) : (
-          <Component {...props} />
+          <Redirect to={{ pathname: '/', state: { from: props.location } }} />
         )
-      ) : (
-        <Redirect to={{ pathname: '/', state: { from: props.location } }} />
-      ))}
+      }
     />
   );
 }

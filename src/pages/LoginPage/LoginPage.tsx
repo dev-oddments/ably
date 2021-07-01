@@ -23,7 +23,7 @@ export default function LoginPage({
             setLogin({
               email: emailRef.current.value,
               password: passwordRef.current.value,
-            })
+            }),
           );
           history.push('/my-info');
         }}

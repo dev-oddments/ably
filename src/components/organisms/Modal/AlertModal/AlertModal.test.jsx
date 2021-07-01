@@ -16,26 +16,28 @@ describe('AlertModal', () => {
 
     useDispatch.mockImplementation(() => dispatch);
 
-    useSelector.mockImplementation((selector) => selector({
-      modal: {
-        [MODALS.ALERT_MODAL]: false,
-        content: '',
-      },
-      auth: {
-        isLogin: false,
-        email: '',
-        lastConnectedAt: '',
-        name: '',
-        profileImage: '',
-      },
-      password: {
-        route: EMAIL_EXIST,
-        issueToken: '',
-        confirmToken: '',
-        remainTime: 0,
-        timerId: '',
-      },
-    }));
+    useSelector.mockImplementation((selector) =>
+      selector({
+        modal: {
+          [MODALS.ALERT_MODAL]: false,
+          content: '',
+        },
+        auth: {
+          isLogin: false,
+          email: '',
+          lastConnectedAt: '',
+          name: '',
+          profileImage: '',
+        },
+        password: {
+          route: EMAIL_EXIST,
+          issueToken: '',
+          confirmToken: '',
+          remainTime: 0,
+          timerId: '',
+        },
+      }),
+    );
   });
 
   it('AlertModal 컴포넌트가 제대로 렌더링 되는지 확인한다', () => {

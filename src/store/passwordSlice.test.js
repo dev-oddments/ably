@@ -1,5 +1,6 @@
-import { getDefaultMiddleware } from '@reduxjs/toolkit';
-import configureStore from 'redux-mock-store';
+// import { getDefaultMiddleware } from '@reduxjs/toolkit';
+// import configureStore from 'redux-mock-store';
+import { EMAIL_EXIST, AUTH_CODE_CHECK } from '@utils/constants';
 import passwordReducer, {
   setRoute,
   setIssueToken,
@@ -8,18 +9,13 @@ import passwordReducer, {
   setTimerId,
   resetTime,
   startTime,
-//   checkEmailExist,
-//   checkAuthCodeRight,
-//   changePassword,
+  //   checkEmailExist,
+  //   checkAuthCodeRight,
+  //   changePassword,
 } from './passwordSlice';
 
-import {
-  EMAIL_EXIST,
-  AUTH_CODE_CHECK,
-} from '@utils/constants';
-
-const middleWares = [...getDefaultMiddleware()];
-const mockStore = configureStore(middleWares);
+// const middleWares = [...getDefaultMiddleware()];
+// const mockStore = configureStore(middleWares);
 
 describe('passwordReducer에서', () => {
   context('각각', () => {
@@ -36,7 +32,7 @@ describe('passwordReducer에서', () => {
         initialState,
         setRoute({
           route: AUTH_CODE_CHECK,
-        })
+        }),
       );
 
       expect(state.route).toEqual(AUTH_CODE_CHECK);
@@ -47,7 +43,7 @@ describe('passwordReducer에서', () => {
         initialState,
         setIssueToken({
           issueToken: 'iamtoken12345',
-        })
+        }),
       );
 
       expect(state.issueToken).toEqual('iamtoken12345');
@@ -58,7 +54,7 @@ describe('passwordReducer에서', () => {
         initialState,
         setConfirmToken({
           confirmToken: 'iamtoken12345',
-        })
+        }),
       );
 
       expect(state.confirmToken).toEqual('iamtoken12345');
@@ -69,7 +65,7 @@ describe('passwordReducer에서', () => {
         initialState,
         setRemainTime({
           remainTime: 60,
-        })
+        }),
       );
 
       expect(state.remainTime).toEqual(60);
@@ -80,7 +76,7 @@ describe('passwordReducer에서', () => {
         initialState,
         setTimerId({
           timerId: 'xyz',
-        })
+        }),
       );
 
       expect(state.timerId).toEqual('xyz');
@@ -98,7 +94,7 @@ describe('passwordReducer에서', () => {
     it('startTime을 사용해 remainMillisecond를 초단위로 바꿔 remainTime이 1초씩 줄어들도록 한다.', () => {
       const state = passwordReducer(
         initialState,
-        startTime({ remainMillisecond: 10000 })
+        startTime({ remainMillisecond: 10000 }),
       );
 
       expect(state.timerId).toEqual('');

@@ -21,10 +21,10 @@ const Wrapper = styled.div`
     padding: 0 20px;
 
     ${({
-    theme: {
-      font: { n18b },
-    },
-  }) => n18b};
+      theme: {
+        font: { n18b },
+      },
+    }) => n18b};
   }
 `;
 

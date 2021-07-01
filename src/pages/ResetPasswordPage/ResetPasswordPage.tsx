@@ -31,7 +31,7 @@ export default function ResetPasswordPage({
         checkAuthCodeRight({
           email: emailRef.current.value,
           authCode: authCodeRef.current.value,
-        })
+        }),
       ),
     [PASSWORD_CHANGE]: () =>
       dispatch(
@@ -40,7 +40,7 @@ export default function ResetPasswordPage({
           newPassword: newPasswordRef.current.value,
           newPasswordConfirm: newPasswordConfirmRef.current.value,
           history,
-        })
+        }),
       ),
   }[route];
 
