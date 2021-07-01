@@ -25,6 +25,23 @@ yarn lint
 
 > TypeScript, Webpack(+ babel), React, Redux(react-redux, redux-toolkit), styled-components, Jest(testing-library/react), Cypress, ESLint(+ Prettier), husky ...
 
+## Showcase
+
+<p align="center">
+<img width="30%" alt="Screen Shot 2021-07-02 at 5 03 44 AM" src="https://user-images.githubusercontent.com/16266103/124183968-e511f700-daf3-11eb-81e6-12036e01375b.png">
+<img width="30%" alt="Screen Shot 2021-07-02 at 5 03 55 AM" src="https://user-images.githubusercontent.com/16266103/124183964-e4796080-daf3-11eb-9642-460d752bb547.png">
+<img width="30%" alt="Screen Shot 2021-07-02 at 5 03 35 AM" src="https://user-images.githubusercontent.com/16266103/124183969-e5aa8d80-daf3-11eb-88f5-88ea39b304a5.png">
+</p>
+<p align="center">
+<img width="30%" alt="Screen Shot 2021-07-02 at 5 07 20 AM" src="https://user-images.githubusercontent.com/16266103/124183961-e3e0ca00-daf3-11eb-8b15-1fdeb7d5a83d.png">
+<img width="30%" alt="Screen Shot 2021-07-02 at 5 07 34 AM" src="https://user-images.githubusercontent.com/16266103/124183959-e3e0ca00-daf3-11eb-8aa1-d3359757c76c.png">
+<img width="30%" alt="Screen Shot 2021-07-02 at 5 09 33 AM" src="https://user-images.githubusercontent.com/16266103/124183957-e3483380-daf3-11eb-91ce-f962a57b1986.png">
+</p>
+<p align="center">
+<img width="30%" alt="Screen Shot 2021-07-02 at 5 09 59 AM" src="https://user-images.githubusercontent.com/16266103/124183954-e2af9d00-daf3-11eb-8541-ecba98edde03.png">
+<img width="30%" alt="Screen Shot 2021-07-02 at 5 10 06 AM" src="https://user-images.githubusercontent.com/16266103/124183941-e04d4300-daf3-11eb-965c-380292ebb0b1.png">
+</p>
+
 ## 구현 범위
 
 ```
@@ -33,59 +50,7 @@ yarn lint
 /my-info : 회원 정보 조회 페이지
 ```
 
-- 퍼블리싱을 제외한 아래 세가지(A, B, C) 모두 빠짐없이 구현하였습니다.
-
-#### 비밀번호 재설정 페이지(as A)
-
-- 비밀번호 재설정 페이지에는 아래와 같은 절차와 흐름을 갖고 있습니다.
-  1. [인증 코드 발급 요청 페이지]에서 이메일을 입력해서 비밀번호 재설정 인증 코드를 전달 받습니다.
-  2. [인증 코드 검증 페이지]에서 비밀번호 재설정 인증 코드를 입력합니다.
-  3. [비밀번호 변경 페이지]에서 새로운 비밀번호를 입력하여 비밀번호를 변경합니다.
-
-1. **인증 코드 발급 요청 페이지**
-
-   - [x] 이메일을 입력 할 수 있는 Input Form과 다음(next) Button을 배치합니다.
-   - [x] 다음 Button을 클릭하면 이메일을 검증합니다.
-   - [x] [인증 코드 발급 요청 API]를 호출하고 응답 결과에 따라 처리합니다.
-     - [x] 호출에 실패하면 메시지로 알립니다.
-     - [x] 호출이 성공하면 [인증 코드 검증 페이지]로 이동합니다.
-
-2. **인증 코드 검증 페이지**
-
-   - [x] 인증 코드를 입력 할 수 있는 Input Form과 인증 만료 시간 Counter, 다음 Button을 배치합니다.
-   - [x] 인증 만료 시간 Counter는 앞서 저장한 남은 인증 시간을 활용해서 mm:ss로 표현합니다. # 만료시간이 지났을 경우 1로 이동하도록 처리했습니다.
-   - [x] 다음 Button을 클릭하면 인증 코드를 검증합니다.
-   - [x] [인증 코드 검증 API]를 호출하고 응답 결과에 따라 처리합니다.
-     - [x] 호출에 실패하면 메시지로 알립니다.
-     - [x] 호출이 성공하면 [비밀번호 변경 페이지]로 이동합니다.
-
-3. **비밀번호 변경 페이지**
-   - [x] 새로운 비밀번호, 새로운 비밀번호 확인 Input Form과 비밀번호 변경하기 Button을 배치합니다.
-   - [x] 비밀번호 변경하기 Button을 클릭하면 새로운 비밀번호와 새로운 비밀번호 확인을 검증합니다.
-   - [x] [비밀번호 변경 API]를 호출하고 응답 결과에 따라 처리합니다.
-     - [x] 호출이 성공하거나 실패하면 메시지로 알립니다.
-
-#### 로그인 페이지(as B)
-
-- [x] 아이디와 비밀번호를 입력 할 수 있는 Input Form과 로그인 Button을 배치합니다.
-  - [x] 로그인 Button을 클릭하면 아이디와 비밀번호를 검증 & 처리합니다.
-  - [x] [로그인 API]를 호출하고 응답 결과에 따라 처리합니다.
-    - [x] 호출에 실패하면 메시지로 알립니다.
-    - [x] 호출이 성공하면 [회원 정보 조회 페이지]로 이동합니다.
-- [x] 비밀번호 재설정 Button을 배치합니다.
-  - [x] 클릭하면 [비빌번호 재설정 > 인증 코드 발급 요청 페이지]로 이동합니다.
-
-#### 회원 정보 조회 페이지(as C)
-
-- [x] 회원 정보를 보여줄 수 있는 Card를 배치합니다.
-  - [x] 이름, 이메일, 프로필 이미지
-- [x] 로그아웃 Button을 배치합니다.
-  - [x] 클릭하면 [로그아웃 API]를 호출하고 응답 결과에 따라 처리합니다.
-    - [x] 호출에 실패하면 메시지로 알립니다.
-    - [x] 호출이 성공하면 [로그인 페이지]로 이동합니다.
-- [x] 페이지 진입 시 [회원정보 조회 API]를 호출합니다.
-  - [x] 호출에 실패하면 [로그인 페이지]로 이동합니다. # [AuthRouter](src/routes/AuthRoute/AuthRoute.tsx)를 도입하였습니다.
-  - [x] 호출이 성공하면 [회원정보 조회 API]의 응답 결과를 화면에 렌더링 합니다.
+세가지(A, B, C) 요구사항 모두 빠짐없이 구현하였습니다.
 
 ## 알리고 싶은 포인트
 
@@ -101,8 +66,10 @@ yarn lint
   - 로그인 이후 정보를 담는 부분은 auth에서 처리하도록 하였습니다.
 - 비동기 액션인 setLogin 과정에서 accessToken은 sessionStorage 저장되도록 처리하였으며, setLogout시 sessionStorage에 remove 되도록 처리했습니다.
 - 인증 만료 시간 Counter는 passwordSlice의 startTime action을 사용하였으며, setInterval을 사용하도록 구현하였습니다.
+  - 60초 미만의 시간이 남았을 경우 글자색을 빨간색으로 변경하도록 하였습니다.
 - flex, font, color 등 자주 사용하는 css 코드들은 [style/theme.ts](src/style/theme.ts)에 정의하였습니다.
 - [AuthRouter](src/routes/AuthRoute/AuthRoute.tsx)를 도입하여 AccessToken과 isLogin 전역 상태가 존재하지 않는 경우 로그인 화면으로 Redirect 되도록 하였습니다.
+- 모든 input은 useState가 아닌 useRef로 값을 저장하게끔 처리하였습니다.
 
 ## src 폴더 구조
 
