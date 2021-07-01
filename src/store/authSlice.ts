@@ -1,8 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { displayModal } from '@store';
 import { MODALS } from '@utils/constants';
-import { postLoginApi, getUserInfoApi } from '@repository/baseRepository';
-import { saveItem } from '@utils/storage';
+import {
+  postLoginApi,
+  postLogoutApi,
+  getUserInfoApi,
+} from '@repository/baseRepository';
+import { saveItem, removeItem } from '@utils/storage';
 
 const authReducer = createSlice({
   name: 'auth',
@@ -62,7 +66,30 @@ export const setInfo = () => async (dispatch) => {
   try {
     const { data } = await getUserInfoApi();
 
+    dispatch(setIsLogin({ isLogin: true }));
     dispatch(setUserInfo({ info: data }));
+  } catch ({
+    response: {
+      data: {
+        error: { message },
+      },
+    },
+  }) {
+    dispatch(
+      displayModal({
+        modalName: MODALS.ALERT_MODAL,
+        content: message,
+      }),
+    );
+  }
+};
+
+export const setLogout = () => async (dispatch) => {
+  try {
+    await postLogoutApi();
+
+    dispatch(setIsLogin({ isLogin: false }));
+    removeItem('accessToken');
   } catch ({
     response: {
       data: {

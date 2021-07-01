@@ -4,11 +4,12 @@ import authReducer, {
   setIsLogin,
   setUserInfo,
   setLogin,
-//   setInfo,
+  //   setInfo,
+  setLogout,
 } from './authSlice';
 
-const middlewares = [...getDefaultMiddleware()];
-const mockStore = configureStore(middlewares);
+const middleWares = [...getDefaultMiddleware()];
+const mockStore = configureStore(middleWares);
 
 describe('authReducer에서', () => {
   context('각각', () => {
@@ -73,5 +74,15 @@ describe('authReducer에서', () => {
 
     //       expect(actions[0].payload).toEqual();
     //     });
+
+    // TODO: 로그인 상황을 재현하는 부분 추가해야 함
+    it('setLogout을 사용해 로그아웃을 할 수 있다.', async () => {
+      const store = mockStore({});
+
+      await store.dispatch(setLogout());
+      const actionsLogout = store.getActions();
+
+      expect(actionsLogout[0].payload.isLogin).toEqual(false);
+    });
   });
 });
