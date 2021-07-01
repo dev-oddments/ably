@@ -1,17 +1,24 @@
 import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
 
-import { render } from '@testing-library/react';
+import { render } from '@parse/test-utils';
 
 import App from './App';
 
-function app() {
-  return render(<App />);
+function renderApp({ path }) {
+  return render(
+    <MemoryRouter initialEntries={[path]}>
+      <App />
+    </MemoryRouter>,
+  );
 }
 
 describe('App', () => {
-  it('App 컴포넌트가 제대로 렌더링 되는지 확인한다', () => {
-    const { container } = app();
+  context('/ path', () => {
+    it('정상적으로 렌더링된다', () => {
+      const { container } = renderApp({ path: '/' });
 
-    expect(container).toBeTruthy();
+      expect(container).toHaveTextContent('test');
+    });
   });
 });

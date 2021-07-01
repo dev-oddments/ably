@@ -5,6 +5,9 @@ module.exports = {
     jest: true, // describe, context, it
   },
   extends: ['plugin:react/recommended', 'airbnb'],
+  globals: {
+    context: 'readonly',
+  },
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
