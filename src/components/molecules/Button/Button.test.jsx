@@ -2,7 +2,7 @@ import React from 'react';
 
 import { render } from '@parse/test-utils';
 
-import { Button } from '@atoms';
+import { Button } from '@molecules';
 
 function renderButton() {
   return render(<Button />);

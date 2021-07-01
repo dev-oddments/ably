@@ -5,7 +5,7 @@ import { get } from '@utils/snippet';
 
 import { removeModal } from '@store';
 
-import { Button } from '@atoms';
+import { Button } from '@molecules';
 
 interface AlertModalProps {
   modalName: string;
