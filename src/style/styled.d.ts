@@ -10,11 +10,11 @@ declare module 'styled-components' {
     };
     flexCol: (
       justifyContent?: string,
-      alignItems?: string
+      alignItems?: string,
     ) => FlattenSimpleInterpolation;
     flexRow: (
       justifyContent?: string,
-      alignItems?: string
+      alignItems?: string,
     ) => FlattenSimpleInterpolation;
     font: {
       n36m: FlattenSimpleInterpolation;
@@ -30,5 +30,6 @@ declare module 'styled-components' {
       n12m: FlattenSimpleInterpolation;
       ellipse: (wrap?: string) => FlattenSimpleInterpolation;
     };
+    input: any;
   }
 }

@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   ${({ theme }) => theme.flexCol()}
 
   width: 100%;
-  height: 100%;
+  height: 100vh;
 `;
 
 export default function App(): ReactElement {
