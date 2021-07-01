@@ -106,7 +106,7 @@ yarn lint
 
 ## src 폴더 구조
 
-- components: atoms, organisms 로 쪼갠 컴포넌트를 정의했습니다.
+- components: atoms, molecules, organisms 로 쪼갠 컴포넌트를 정의했습니다.
 - context: axios 요청을 일반화하는 모듈을 정의했습니다.
 - pages: 페이지 단위로 렌더링할 컴포넌트를 정의했습니다.
 - repository: context/serverContext.ts를 사용해 각 엔드포인트를 함수화 해두었습니다.
