@@ -3,7 +3,8 @@ import { Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { Modal } from '@organisms';
-import { LoginPage } from '@pages';
+import { LoginPage, MyInfoPage, ResetPasswordPage } from '@pages';
+import { AuthRoute } from '@routes';
 
 import { MODALS } from '@utils/constants';
 
@@ -23,6 +24,8 @@ export default function App(): ReactElement {
       <Switch>
         <Wrapper>
           <Route exact path="/" component={LoginPage} />
+          <Route exact path="/reset-password" component={ResetPasswordPage} />
+          <AuthRoute exact path="/my-info" component={MyInfoPage} />
           <Modal modalName={MODALS.ALERT_MODAL} />
         </Wrapper>
       </Switch>
