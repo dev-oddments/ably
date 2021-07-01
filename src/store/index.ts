@@ -6,11 +6,27 @@ import modalReducer, {
   setContent,
 } from './modalSlice';
 
-export const reducers = combineReducers({
+import authReducer, {
+  setIsLogin,
+  setUserInfo,
+  setLogin,
+  setInfo,
+} from './authSlice';
+
+const reducers = combineReducers({
   modal: modalReducer,
+  auth: authReducer,
 });
 
 const store = configureStore({ reducer: reducers });
 
 export default store;
-export { displayModal, removeModal, setContent };
+export {
+  displayModal,
+  removeModal,
+  setContent,
+  setIsLogin,
+  setUserInfo,
+  setLogin,
+  setInfo,
+};
