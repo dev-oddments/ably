@@ -18,6 +18,8 @@ const Wrapper = styled.div`
   height: 200px;
 
   > div {
+    padding: 0 20px;
+
     ${({
     theme: {
       font: { n18b },
