@@ -12,6 +12,7 @@ module.exports = {
       statements: 100,
     },
   },
+  testPathIgnorePatterns: ['<rootDir>/cypress/'],
   coverageReporters: ['json-summary'],
   testEnvironment: 'jsdom',
   moduleNameMapper: {

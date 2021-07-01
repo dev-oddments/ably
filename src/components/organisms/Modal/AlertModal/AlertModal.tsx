@@ -35,7 +35,7 @@ export default function AlertModal({ modalName }: AlertModalProps) {
   return (
     <>
       <Wrapper>
-        <div>{content}</div>
+        <div className="alert-content">{content}</div>
         <Button
           title="닫기"
           func={() => dispatch(removeModal({ modalName }))}

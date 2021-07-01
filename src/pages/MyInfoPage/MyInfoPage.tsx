@@ -6,9 +6,7 @@ import { setInfo, setLogout } from '@store';
 
 export default function MyInfoPage({ history }: RouteComponentProps) {
   const dispatch = useDispatch();
-  const {
-    isLogin, email, name, profileImage,
-  } = useSelector(get('auth'));
+  const { isLogin, email, name, profileImage } = useSelector(get('auth'));
 
   useEffect(() => {
     (async () => {
@@ -22,17 +20,9 @@ export default function MyInfoPage({ history }: RouteComponentProps) {
     <>
       {isLogin && (
         <>
-          <div>
-            email:
-            {' '}
-            {email}
-          </div>
-          <div>
-            name:
-            {' '}
-            {name}
-          </div>
-          <img src={profileImage} alt="profile" />
+          <div className="email">email: {email}</div>
+          <div className="name">name: {name}</div>
+          <img className="image" src={profileImage} alt="profile" />
         </>
       )}
       <button

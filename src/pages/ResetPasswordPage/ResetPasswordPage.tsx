@@ -24,21 +24,24 @@ export default function ResetPasswordPage({
   const newPasswordConfirmRef: any = useRef<HTMLInputElement>(null);
 
   const handleClickButton = {
-    [EMAIL_EXIST]: async () => await dispatch(checkEmailExist({ email: emailRef.current.value })),
-    [AUTH_CODE_CHECK]: () => dispatch(
-      checkAuthCodeRight({
-        email: emailRef.current.value,
-        authCode: authCodeRef.current.value,
-      }),
-    ),
-    [PASSWORD_CHANGE]: () => dispatch(
-      changePassword({
-        email: emailRef.current.value,
-        newPassword: newPasswordRef.current.value,
-        newPasswordConfirm: newPasswordConfirmRef.current.value,
-        history,
-      }),
-    ),
+    [EMAIL_EXIST]: async () =>
+      await dispatch(checkEmailExist({ email: emailRef.current.value })),
+    [AUTH_CODE_CHECK]: () =>
+      dispatch(
+        checkAuthCodeRight({
+          email: emailRef.current.value,
+          authCode: authCodeRef.current.value,
+        })
+      ),
+    [PASSWORD_CHANGE]: () =>
+      dispatch(
+        changePassword({
+          email: emailRef.current.value,
+          newPassword: newPasswordRef.current.value,
+          newPasswordConfirm: newPasswordConfirmRef.current.value,
+          history,
+        })
+      ),
   }[route];
 
   return (
