@@ -11,11 +11,20 @@ import authReducer, {
   setUserInfo,
   setLogin,
   setInfo,
+  setLogout,
 } from './authSlice';
+
+// eslint-disable-next-line import/no-cycle
+import passwordReducer, {
+  checkEmailExist,
+  checkAuthCodeRight,
+  changePassword,
+} from './passwordSlice';
 
 const reducers = combineReducers({
   modal: modalReducer,
   auth: authReducer,
+  password: passwordReducer,
 });
 
 const store = configureStore({ reducer: reducers });
@@ -29,4 +38,8 @@ export {
   setUserInfo,
   setLogin,
   setInfo,
+  setLogout,
+  checkEmailExist,
+  checkAuthCodeRight,
+  changePassword,
 };
